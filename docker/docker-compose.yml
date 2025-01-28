@@ -1,8 +1,8 @@
 version: "3.3"
 services:
-  gyattification: &gyattification
-    container_name: gyattification
-    image: gyattification:latest
+  ros2ubuntu: &ros2ubuntu
+    container_name: ros2ubuntu
+    image: ros2ubuntu:latest
     ipc: host
     network_mode: host
     privileged: true
@@ -10,7 +10,7 @@ services:
       - DISPLAY
       - XAUTHORITY=/tmp/.Xauthority
     volumes:
-      - $HOME/gyattbot/fyp/shared/ros2:/root/fyp/shared/ros2
+      - $HOME/$USER/fyp/shared/ros2:/root/fyp/shared/ros2
       - $HOME/.Xauthority:/tmp/.Xauthority
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /dev:/dev
@@ -22,12 +22,12 @@ services:
   # because they share the same ROS_DOMAIN_ID.
   # Publisher service: Runs the demo talker node
   minimal_publisher:
-    <<: *gyattification # This uses all the same settings as the 'gyattification' service
+    <<: *ros2ubuntu # This uses all the same settings as the 'ros2ubuntu' service
     container_name: minimal_publisher
     command: ["ros2", "run", "demo_nodes_cpp", "talker"]
 
   # Subscriber service: Runs the demo listener node
   minimal_subscriber:
-    <<: *gyattification # This uses all the same settings as the 'gyattification' service
+    <<: *ros2ubuntu # This uses all the same settings as the 'ros2ubuntu' service
     container_name: minimal_subscriber
     command: ["ros2", "run", "demo_nodes_cpp", "listener"]
