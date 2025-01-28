@@ -42,10 +42,10 @@ RUN apt-get update && \
 
 # Create necessary directories
 RUN mkdir -p /etc/udev/rules.d && \
-    mkdir -p /root/fyp/ros2_ws/src/gyattbot
+    mkdir -p /root/fyp/ros2_ws/src/
 
 # Copy all
-COPY . /root/fyp/ros2_ws/src/gyattbot
+COPY . /root/fyp/ros2_ws/src/
 
 # Copy all config (using docker prefix for docker's context)
 COPY docker/workspace.sh /root/
