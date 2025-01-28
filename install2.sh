@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# https://docs.docker.com/engine/install/linux-postinstall/
-
-# Create docker group
-sudo groupadd docker
+# Check if the docker group exists, and create if it doesn't
+if ! getent group docker > /dev/null; then
+  sudo groupadd docker
+fi
 
 # Add self to docker group
 sudo usermod -aG docker $USER
