@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Check if the docker group exists, and create if it doesn't
 if ! getent group docker > /dev/null; then

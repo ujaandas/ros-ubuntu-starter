@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Create shared ros2 folder (files to be shared between container and host)
 if [ ! -d "$HOME/$USER/fyp/shared/ros2" ]; then
