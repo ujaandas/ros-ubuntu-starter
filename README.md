@@ -29,16 +29,10 @@ This will build the Docker image with the name `ros2ubuntu`. See to it that the 
 docker images
 ```
 
-5. Then, run the Docker container by running the following command:
+5. Finally, you can access the Docker container by running the following command (it will compose the Docker container if it doesn't already exist):
 
 ```bash
-docker-compose up -d
-```
-
-6. Finally, you can access the Docker container by running the following command:
-
-```bash
-docker exec -it ros2ubuntu bash
+bash connect.sh
 ```
 
 ## Customizing the Docker Image
