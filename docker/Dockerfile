@@ -41,13 +41,11 @@ RUN mkdir -p /etc/udev/rules.d $ROS_WS/src/
 COPY . $ROS_WS/src/
 COPY docker/workspace.sh /root/
 COPY docker/entrypoint.sh /root/
+COPY docker/custom_bashrc /root/.bashrc
 RUN chmod +x /root/workspace.sh /root/entrypoint.sh
 
 # Set up ROS2 environment
-RUN rosdep update && \
-    echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /root/.bashrc && \
-    echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> /root/.bashrc && \
-    echo "source $ROS_WS/install/setup.bash" >> /root/.bashrc
+RUN rosdep update
 
 # Install workspace dependencies and build
 WORKDIR /root
