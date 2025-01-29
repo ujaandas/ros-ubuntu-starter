@@ -10,17 +10,13 @@ services:
       - DISPLAY
       - XAUTHORITY=/tmp/.Xauthority
     volumes:
-      - $HOME/$USER/fyp/shared/ros2:/root/fyp/shared/ros2
+      - $HOME/$USER/fyp/shared/:/root/fyp/shared/
       - $HOME/.Xauthority:/tmp/.Xauthority
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /dev:/dev
     command: ["tail", "-f", "/dev/null"]
 
-  # The following services are commented out for this tutorial.
-  # They demonstrate how to create multiple containers from the same Docker image,
-  # each running a specific ROS 2 node. These containers can communicate with each other
-  # because they share the same ROS_DOMAIN_ID.
-  # Publisher service: Runs the demo talker node
+  # The following is taken from AutomaticAddison's Cobot repo - highly suggest to check it out - a lot of this project is inspired by or comes directly from there
   minimal_publisher:
     <<: *ros2ubuntu # This uses all the same settings as the 'ros2ubuntu' service
     container_name: minimal_publisher

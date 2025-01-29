@@ -12,7 +12,7 @@ chmod 700 $XDG_RUNTIME_DIR
 ROS_WS="/root/fyp/ros2_ws"
 
 # Shared ROS files
-SHARED_ROS="/root/fyp/shared/ros2"
+SHARED_ROS="/root/fyp/shared/"
 
 # Source ROS setup
 source /opt/ros/$ROS_DISTRO/setup.bash
