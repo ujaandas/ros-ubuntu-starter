@@ -7,10 +7,10 @@ PROJECT_DIR=$(pwd)
 xhost +
 
 # Check if the container is running
-if [ "$(docker-compose -f $PROJECT_DIR/../docker-compose.yml ps | grep 'ros2ubuntu.*Up')" ]; then
-    docker-compose -f $PROJECT_DIR/../docker-compose.yml exec ros2ubuntu bash
+if [ "$(docker-compose -f $PROJECT_DIR/docker-compose.yml ps | grep 'ros2ubuntu.*Up')" ]; then
+    docker-compose -f $PROJECT_DIR/docker-compose.yml exec ros2ubuntu bash
 else
     echo "Starting the container..."
-    docker-compose -f $PROJECT_DIR/../docker-compose.yml up -d
-    docker-compose -f $PROJECT_DIR/../docker-compose.yml exec ros2ubuntu bash
+    docker-compose -f $PROJECT_DIR/docker-compose.yml up -d
+    docker-compose -f $PROJECT_DIR/docker-compose.yml exec ros2ubuntu bash
 fi
